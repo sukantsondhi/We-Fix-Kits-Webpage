@@ -1,0 +1,339 @@
+/* Add this at the top to remove horizontal overflow */
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+    background: linear-gradient(135deg, #000000, #808080, #ffffff);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* Updated layout for stacking header, content, footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #00000077, #808080, #ffffffd2);
+}
+
+.header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;                /* Added */
+    justify-content: center;      /* Added */
+    align-items: center;          /* Added */
+    padding: 0 20px;              /* Optional: adds side padding */
+}
+
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav li {
+    margin: 0 15px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #f8f8f8;
+    transform: scale(1.05);
+}
+
+/* Updated container to grow and push footer to the bottom */
+.container {
+    margin: 80px auto 0 auto;     /* Center container horizontally */
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;       /* Ensure vertical stacking */
+    align-items: center;
+    justify-content: center;
+    text-align: center;           /* Center text content */
+}
+
+.logo {
+    max-width: 400px; /* increased overall logo size from 1000px */
+    margin-bottom: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Remove fixed positioning */
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin: 0;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
+a {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+a:hover {
+    background-color: #f8f8f8;
+    transform: scale(1.05);
+}
+
+a:active {
+    transform: scale(0.95);
+}
+
+.button.clicked {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+.button img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.link {
+    background-color: #0e68c8;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Footer modifications: always visible and placed at the bottom */
+footer {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* push footer to bottom */
+}
+
+footer p {
+    margin: 0;
+    color: #333;
+}
+
+footer .socials {
+    margin-top: 10px;
+}
+
+.translucent-box {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    width: 600px;
+    min-height: 400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.about-box {
+    background: rgba(255, 255, 255, 0.25);  /* translucent white */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);  /* subtle glass border */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form textarea {
+    height: 150px;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #0078d7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
+
+form button:active {
+    transform: scale(0.95);
+}
+
+/* Hamburger menu styles */
+#hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+    cursor: pointer;
+    font-size: 24px;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Responsive styles for phones */
+@media (max-width: 768px) {
+  /* Removed "display: none" rule for .nav */
+  .nav {
+    display: block;
+    position: relative;
+    background: transparent;
+    padding: 0;
+  }
+
+  /* Adjust nav ul to always show in row or as desired */
+  .nav ul {
+    flex-direction: row;           /* display links in one row */
+    justify-content: space-around; /* evenly space the links */
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap; /* Prevent links from wrapping */
+  }
+
+  .nav a {
+    font-size: 1.1em;  /* Increase font size for better readability */
+  }
+
+  .container {
+    padding: 10px 1px; /* Set equal left/right padding */
+  }
+
+  .header {
+    padding: 0 10px; /* reduce side padding */
+  }
+
+  form input,
+  form textarea {
+    max-width: 100%;
+  }
+
+  .logo {
+    max-width: 200px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .translucent-box {
+    width: 90%;
+    min-height: 300px;
+  }
+
+  /* Reduce spacing between navigation items */
+  .nav li {
+    margin: 0 5px; /* Reduced margin for better fit */
+  }
+
+  /* Center align content for contact and about pages */
+  .container,
+  section,
+  .translucent-box {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Responsive styles for very small mobile screens */
+@media (max-width: 480px) {
+  .header {
+    padding: 0 5px; /* reduce header side padding */
+  }
+  .nav ul {
+    gap: 0.5rem; /* reduce gap between items */
+  }
+  .nav li {
+    margin: 0 2px; /* further reduce margin between navigation items */
+  }
+  .nav a {
+    font-size: 1em; /* slightly reduce font size */
+  }
+}
+
+/* Responsive styles for computers */
+@media (min-width: 769px) {
+  .nav ul {
+    flex-direction: row;
+  }
+
+  /* ...potential additional desktop-specific styles... */
+}
